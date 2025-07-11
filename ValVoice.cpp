@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 #include "ValVoice.h"
 #include "resource.h"
 
@@ -13,10 +13,12 @@
 #include <codecvt>
 #include <locale>
 #include <shellapi.h>  // Include the header for ShellExecuteW
+#include <dwmapi.h>
 
 #pragma comment(lib, "sapi.lib")
 #pragma comment(lib, "comctl32.lib")
 #pragma comment(lib, "Shell32.lib")  // Link against Shell32.lib
+#pragma comment(lib, "dwmapi.lib")
 
 #define MAX_LOADSTRING 100
 
@@ -39,6 +41,8 @@ std::vector<std::wstring> g_blockedIds;
 // Globals for tab dialogs
 HWND g_hTabDialogs[3] = { nullptr, nullptr, nullptr };
 const int g_tabDialogIds[3] = { IDD_TAB_MAIN, IDD_TAB_INFO, IDD_TAB_SETTINGS };
+
+HFONT g_hSegoeUIFont = nullptr;
 
 // Forward Declarations
 ATOM MyRegisterClass(HINSTANCE hInstance);
@@ -215,14 +219,16 @@ void SpeakFromUI(HWND hTabWnd) {
     }
 }
 
+void EnableDarkMode(HWND hwnd) {
+    BOOL dark = TRUE;
+    // 20 = DWMWA_USE_IMMERSIVE_DARK_MODE before Windows 11, 19 for Windows 11+
+    DwmSetWindowAttribute(hwnd, 20, &dark, sizeof(dark));
+    DwmSetWindowAttribute(hwnd, 19, &dark, sizeof(dark));
+}
+
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
-
-    // ✅ Optional OS check (safe and modern)
-    if (!IsWindows10OrGreater()) {
-        MessageBoxW(NULL, L"This app is optimized for Windows 10 or later.", L"Warning", MB_ICONWARNING);
-    }
 
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_VALVOICE, szWindowClass, MAX_LOADSTRING);
@@ -252,6 +258,11 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmd
 
     // At app exit, before return:
     g_blockedIds.clear();
+
+    if (g_hSegoeUIFont) {
+        DeleteObject(g_hSegoeUIFont);
+        g_hSegoeUIFont = nullptr;
+    }
 
     return (int)msg.wParam;
 }
@@ -319,8 +330,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow) {
 
     ResetStatsIfNeeded(hWnd);
 
+    // Center the main window on the screen
+    RECT rc;
+    GetWindowRect(hWnd, &rc);
+    int winWidth = rc.right - rc.left;
+    int winHeight = rc.bottom - rc.top;
+
+    int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+    int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+    int x = (screenWidth - winWidth) / 2;
+    int y = (screenHeight - winHeight) / 2;
+
+    SetWindowPos(hWnd, HWND_TOP, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+
     ShowWindow(hWnd, nCmdShow);
     UpdateWindow(hWnd);
+
+    EnableDarkMode(hWnd);
+
     return TRUE;
 }
 
@@ -383,6 +411,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
             HWND hVoiceCombo = GetDlgItem(hTabMain, IDC_VOICE_COMBO);
             PopulateVoices(hVoiceCombo);
             SendMessage(hVoiceCombo, CB_SETCURSEL, 0, 0);
+
+            // Assuming hTextInput is the HWND of your "Text to Speak" edit control
+            HWND hTextInput = GetDlgItem(hTabMain, IDC_TEXT_INPUT);
+            SendMessageW(hTextInput, EM_SETCUEBANNER, 0, (LPARAM)L"Type your message here...");
+
+            if (!g_hSegoeUIFont) {
+                g_hSegoeUIFont = CreateFontW(
+                    -11, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
+                    DEFAULT_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
+                    DEFAULT_PITCH | FF_DONTCARE, L"Segoe UI"
+                );
+            }
+
+            SendMessageW(GetDlgItem(hTabMain, IDC_TEXT_INPUT), WM_SETFONT, (WPARAM)g_hSegoeUIFont, TRUE);
+            SendMessageW(GetDlgItem(hTabMain, IDC_SPEAK_BUTTON), WM_SETFONT, (WPARAM)g_hSegoeUIFont, TRUE);
+            SendMessageW(GetDlgItem(hTabMain, IDC_STOP_BUTTON), WM_SETFONT, (WPARAM)g_hSegoeUIFont, TRUE);
+            // ...repeat for other controls as needed
         }
 
         // Info Tab (now also handles settings controls)
@@ -446,21 +491,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 Button_SetCheck(hSyncVoice, BST_UNCHECKED);
             }
 
-            // Initialize "Ignore Player Messages" add combo box (empty by default)
-            HWND hIgnoreAdd = GetDlgItem(hTabSettings, IDC_SETTINGS_IGNORE_ADD);
-            if (hIgnoreAdd) {
-                // Optionally set cue banner or placeholder text if desired
-                // SendMessage(hIgnoreAdd, CB_ADDSTRING, 0, (LPARAM)L"Add RiotId#RiotTag");
-            }
-
-            // Initialize "Ignore Player Messages" list combo box
-            HWND hIgnoreList = GetDlgItem(hTabSettings, IDC_SETTINGS_IGNORE_LIST);
-            if (hIgnoreList) {
-                // Populate with blocked IDs if any
-                for (const auto& id : g_blockedIds) {
-                    SendMessageW(hIgnoreList, CB_ADDSTRING, 0, (LPARAM)id.c_str());
-                }
-            }
+            
         }
 
         return TRUE;
@@ -578,6 +609,21 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
 INT_PTR CALLBACK LoginDlgProc(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
     case WM_INITDIALOG:
+        // Center the login dialog on the screen
+        {
+            RECT rc;
+            GetWindowRect(hDlg, &rc);
+            int winWidth = rc.right - rc.left;
+            int winHeight = rc.bottom - rc.top;
+
+            int screenWidth = GetSystemMetrics(SM_CXSCREEN);
+            int screenHeight = GetSystemMetrics(SM_CYSCREEN);
+
+            int x = (screenWidth - winWidth) / 2;
+            int y = (screenHeight - winHeight) / 2;
+
+            SetWindowPos(hDlg, HWND_TOP, x, y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+        }
         SetDlgItemTextW(hDlg, IDC_LOGIN_USERID, g_userId);
         Button_SetCheck(GetDlgItem(hDlg, IDC_LOGIN_PREMIUM), g_isPremium ? BST_CHECKED : BST_UNCHECKED);
         return (INT_PTR)TRUE;
