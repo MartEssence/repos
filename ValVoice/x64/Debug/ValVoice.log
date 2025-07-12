@@ -1,0 +1,4 @@
+﻿  ValVoice.cpp
+C:\Users\HP\source\repos\ValVoice\ValVoice.cpp(177,16): warning C4244: 'initializing': conversion from 'LRESULT' to 'int', possible loss of data
+C:\Users\HP\source\repos\ValVoice\ValVoice.cpp(182,20): warning C4244: 'initializing': conversion from 'LRESULT' to 'int', possible loss of data
+  ValVoice.vcxproj -> C:\Users\HP\source\repos\ValVoice\x64\Debug\ValVoice.exe
