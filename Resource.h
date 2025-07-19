@@ -53,6 +53,7 @@
 #define IDC_LINE1                       2120
 #define IDC_LINE2                       2121
 #define IDC_LINE3                       2122
+#define IDC_NARRATOR_SPEAK_BUTTON       1010 // Assign a unique integer value
 
 // ---------------------------
 // Main Tab Controls
