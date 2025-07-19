@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 
 #include "Resource.h"
 
@@ -14,6 +14,8 @@
 #include <locale>
 #include <shellapi.h>  // Include the header for ShellExecuteW
 #include <dwmapi.h>
+#include <windows.h>
+
 
 #pragma comment(lib, "sapi.lib")
 #pragma comment(lib, "comctl32.lib")
@@ -21,6 +23,8 @@
 #pragma comment(lib, "dwmapi.lib")
 
 #define MAX_LOADSTRING 100
+
+
 
 // Global Variables
 HINSTANCE hInst;
@@ -54,6 +58,24 @@ INT_PTR CALLBACK TabDialogProc(HWND, UINT, WPARAM, LPARAM);
 
 // Add this function near the top, after includes
 void PopulateVoices(HWND hCombo) {
+    if (!hCombo) return;
+    SendMessage(hCombo, CB_RESETCONTENT, 0, 0);
+    CComPtr<IEnumSpObjectTokens> cpEnum;
+    if (SUCCEEDED(SpEnumTokens(SPCAT_VOICES, NULL, NULL, &cpEnum)) && cpEnum) {
+        CComPtr<ISpObjectToken> cpToken;
+        ULONG fetched = 0;
+        while (cpEnum->Next(1, &cpToken, &fetched) == S_OK) {
+            LPWSTR desc = nullptr;
+            if (SUCCEEDED(SpGetDescription(cpToken, &desc))) {
+                SendMessage(hCombo, CB_ADDSTRING, 0, (LPARAM)desc);
+                CoTaskMemFree(desc);
+            }
+            cpToken.Release();
+        }
+    }
+}
+
+void PopulateNarratorVoices(HWND hCombo) {
     if (!hCombo) return;
     SendMessage(hCombo, CB_RESETCONTENT, 0, 0);
     CComPtr<IEnumSpObjectTokens> cpEnum;
@@ -142,46 +164,16 @@ void LoadBlockedIds() {
 }
 
 void SpeakFromUI(HWND hTabWnd) {
-    ResetStatsIfNeeded(hTabWnd);
-
     if (!pVoice) {
-        MessageBoxW(hTabWnd, L"Voice engine not available.", L"Error", MB_ICONERROR);
-        return;
-    }
-
-    // Example: Replace with actual sender Riot ID in your integration
-    const wchar_t* senderRiotId = L"SomeRiotID";
-    for (const auto& blocked : g_blockedIds) {
-        if (wcscmp(senderRiotId, blocked.c_str()) == 0) {
-            MessageBoxW(hTabWnd, L"Sender is blocked.", L"Blocked", MB_ICONWARNING);
-            return;
-        }
-    }
-
-    // Enforce quota
-    if (g_messagesToday >= g_dailyQuota) {
-        MessageBoxW(hTabWnd, L"Daily quota reached.", L"Quota", MB_ICONWARNING);
+        MessageBoxW(hTabWnd, L"SAPI voice engine not initialized.", L"Error", MB_ICONERROR);
         return;
     }
 
     wchar_t text[1024];
     GetDlgItemTextW(hTabWnd, IDC_TEXT_INPUT, text, 1024);
-    size_t len = wcslen(text);
-    if (len > static_cast<size_t>(INT_MAX)) {
-        MessageBoxW(hTabWnd, L"Text length exceeds maximum allowed size.", L"Error", MB_ICONERROR);
+    if (wcslen(text) == 0) {
+        MessageBoxW(hTabWnd, L"Please enter text to speak.", L"Info", MB_ICONINFORMATION);
         return;
-    }
-    int intLen = static_cast<int>(len);
-    if (intLen == 0) return;
-
-    int uiRate = SendMessage(GetDlgItem(hTabWnd, IDC_RATE_SLIDER), TBM_GETPOS, 0, 0);
-    // Map 25–200 to -10 to +10
-    int rate = (int)(((uiRate - 25) / 175.0) * 20 - 10 + 0.5);
-    int volume = static_cast<int>(SendMessage(GetDlgItem(hTabWnd, IDC_VOLUME_SLIDER), TBM_GETPOS, 0, 0));
-
-    int agentIndex = SendMessage(GetDlgItem(hTabWnd, IDC_AGENT_COMBO), CB_GETCURSEL, 0, 0);
-    if (agentIndex >= 0 && agentIndex < _countof(agents)) {
-        rate += agents[agentIndex].rate;
     }
 
     // Set selected voice
@@ -201,22 +193,9 @@ void SpeakFromUI(HWND hTabWnd) {
         }
     }
 
-    if (pVoice) {
-        pVoice->SetRate(rate);
-        pVoice->SetVolume(volume);
-        pVoice->Speak(text, SPF_ASYNC, NULL);
-
-        // Update stats
-        g_messagesToday++;
-        g_charsToday += intLen;
-        SetDlgItemInt(hTabWnd, IDC_STATS_MSGS, g_messagesToday, FALSE);
-        SetDlgItemInt(hTabWnd, IDC_STATS_CHARS, g_charsToday, FALSE);
-
-        // Update quota
-        HWND hQuotaBar = GetDlgItem(hTabWnd, IDC_QUOTA_BAR);
-        SendMessage(hQuotaBar, PBM_SETPOS, g_dailyQuota - g_messagesToday, 0);
-        SetDlgItemInt(hTabWnd, IDC_QUOTA_VALUE, g_dailyQuota - g_messagesToday, FALSE);
-    }
+    pVoice->SetRate(0);    // Normal rate
+    pVoice->SetVolume(100); // Max volume
+    pVoice->Speak(text, SPF_ASYNC, NULL);
 }
 
 void EnableDarkMode(HWND hwnd) {
@@ -226,9 +205,26 @@ void EnableDarkMode(HWND hwnd) {
     DwmSetWindowAttribute(hwnd, 19, &dark, sizeof(dark));
 }
 
+
+
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
+
+    // Launch Riot Client at app startup
+    HINSTANCE result = ShellExecuteW(
+        NULL,
+        L"open",
+        L"C:\\Riot Games\\Riot Client\\RiotClientServices.exe", // Use Riot Client path
+        NULL,
+        NULL,
+        SW_SHOWNORMAL
+    );
+    if ((INT_PTR)result <= 32) {
+        WCHAR buf[64];
+        wsprintf(buf, L"Failed to launch Riot Client. Error code: %d", (int)(INT_PTR)result);
+        MessageBoxW(NULL, buf, L"Error", MB_OK | MB_ICONERROR);
+    }
 
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_VALVOICE, szWindowClass, MAX_LOADSTRING);
@@ -491,7 +487,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
                 Button_SetCheck(hSyncVoice, BST_UNCHECKED);
             }
 
-
+            HWND hNarratorVoiceCombo = GetDlgItem(hTabSettings, IDC_NARRATOR_VOICE_COMBO);
+            PopulateNarratorVoices(hNarratorVoiceCombo);
+            SendMessage(hNarratorVoiceCombo, CB_SETCURSEL, 0, 0); // Select first voice by default
         }
 
         return TRUE;
@@ -571,6 +569,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
         case IDC_SETTINGS_SYNC_BTN:
             MessageBoxW(hTabWnd, L"Sync voice settings to valorant clicked.\n(Implement sync logic here.)", L"Settings", MB_OK | MB_ICONINFORMATION);
             break;
+        case IDC_NARRATOR_SPEAK_BUTTON: {
+            HWND hNarratorVoiceCombo = GetDlgItem(hTabWnd, IDC_NARRATOR_VOICE_COMBO);
+            int sel = (int)SendMessage(hNarratorVoiceCombo, CB_GETCURSEL, 0, 0);
+            if (sel != CB_ERR) {
+                CComPtr<IEnumSpObjectTokens> cpEnum;
+                if (SUCCEEDED(SpEnumTokens(SPCAT_VOICES, NULL, NULL, &cpEnum)) && cpEnum) {
+                    CComPtr<ISpObjectToken> cpToken;
+                    ULONG fetched = 0;
+                    for (int i = 0; i <= sel; ++i) {
+                        cpEnum->Next(1, &cpToken, &fetched);
+                    }
+                    if (cpToken) {
+                        pVoice->SetVoice(cpToken);
+                    }
+                }
+            }
+            wchar_t text[1024];
+            GetDlgItemTextW(hTabWnd, IDC_TEXT_INPUT, text, 1024);
+            pVoice->SetRate(0);
+            pVoice->SetVolume(100);
+            pVoice->Speak(text, SPF_ASYNC, NULL);
+            break;
+        }
         }
         break;
     }
