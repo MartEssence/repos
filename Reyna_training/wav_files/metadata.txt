@@ -1,68 +1,81 @@
-Reyna_001|reyna|This anime is nothing special. Still human. Still mortal.
-Reyna_003|reyna|safer buried.
+Reyna_001|reyna|This enemy is nothing special. Still human. Still mortal.
+Reyna_002|reyna|Aw. You'll work with me? What a relief!
+Reyna_003|reyna|Cypher buried.
 Reyna_004|reyna|I will drink the life from our prey that's all they're good for.
-Reyna_005|reyna|kill Joey's and offense to my radiance. I'll break her apart.
+Reyna_005|reyna|Killjoy and offense to my radiance. I'll break her apart.
 Reyna_006|reyna|I have lied, beaten, killed to survive. I will kill again and again if it means one more day.
 Reyna_007|reyna|I don't care how bright you are. You'll never be a radiant.
 Reyna_008|reyna|Somehow the hunger always lingers.
-Reyna_009|reyna|is the braiding excellent then we are done.
-Reyna_010|reyna|Okay, Jit, time to fly.
+Reyna_009|reyna|They stopped breathing? Excellent. Then we're done
+Reyna_010|reyna|Okay, Jet, time to fly.
 Reyna_011|reyna|Somehow the hunger always lingers.
-Reyna_013|reyna|Bridge Killed.
-Reyna_015|reyna|Ah, this poor place, it thinks to life. A city after my own heart.
+Reyna_012|reyna|Three Souls.
+Reyna_013|reyna|Breach Killed.
+Reyna_014|reyna|Somehow the hunger always lingers.
+Reyna_015|reyna|Oh. This poor place, it clings to life. A city after my own heart.
 Reyna_016|reyna|
-Reyna_017|reyna|I don't like your toy, Safer. Don't spy on me.
+Reyna_017|reyna|I don't like your toys, Cypher. Don't spy on me.
 Reyna_018|reyna|I thought they'd have more to offer. How foolish of me.
-Reyna_019|reyna|I like the way you work, bridge. Beolento. Me gusta.
+Reyna_019|reyna|I like the way you work, breach. Beolento. Me gusta.
 Reyna_020|reyna|Enough with the robots, I want their maker.
+Reyna_021|reyna|Ah. Viper, must you always play with your food?
 Reyna_022|reyna|
-Reyna_023|reyna|Oh, gee, I remember being so young. It's good that she'll die before feeling old like me.
-Reyna_024|reyna|It doesn't matter what this place used to be. Note's just another grapejourth.
+Reyna_023|reyna|Aw. Jett, I remember being so young. It's good that she'll die before feeling old like me.
+Reyna_024|reyna|It doesn't matter what this place used to be. Now it's just another graveyard.
 Reyna_025|reyna|This is who I was meant to be!
 Reyna_026|reyna|What can I say when I want something? I take it.
-Reyna_028|reyna|I would hope the discreot tourists have. I almost beat them.
-Reyna_030|reyna|You'll work with me. What I really...
+Reyna_027|reyna|don't rush me!
+Reyna_028|reyna|ah. What hope do this criaturas have? I almost pity them.
+Reyna_029|reyna|It doesn't matter what this place used to be. Now it's just another graveyard.
+Reyna_030|reyna|Aw, You'll work with me. What a relief..
 Reyna_031|reyna|I thought they'd have more to offer. How foolish of me.
-Reyna_032|reyna|If I had to appear, it's because I am.
-Reyna_033|reyna|Bramstun, if you must leave, then leave well. Where do we go?
+Reyna_032|reyna|If I act superior, it's because I am.
+Reyna_033|reyna|Brimstone , if you must leave, then leave well. Where do we go?
 Reyna_034|reyna|I don't care how bright you are. You'll never be a radiant.
-Reyna_036|reyna|Happy hunting, all men.
-Reyna_037|reyna|If I had to appear, it's because I am.
-Reyna_038|reyna|They're just playing hard to get. All right, I'll play.
-Reyna_039|reyna|I can deal with the morality of yet another Bramstown. The Pokerisia. I'll silence him.
+Reyna_035|reyna|Be grateful I killed you quickly.
+Reyna_036|reyna|Happy hunting, Omen.
+Reyna_037|reyna|If I act superior, it's because I am.
+Reyna_038|reyna|They're Jet playing hard to get. All right, I'll play.
+Reyna_039|reyna|Sigh "I can't deal with the morally of yet another Brimstone. The Hipocresía. I'll silence him".
+Reyna_040|reyna|I thought they'd have more to offer. How foolish of me.
 Reyna_041|reyna|Someone else will clean up. I don't take out the trash.
 Reyna_042|reyna|What can I say when I want something? I take it.
-Reyna_043|reyna|I remember the machine's guild you made. What did he do? Never mind. He does not matter.
+Reyna_043|reyna|I remember the machines Killjoy made. What they did to... Nevermind. It does not matter.
 Reyna_044|reyna|Are those enemies? This won't take long.
-Reyna_045|reyna|I'll show that Brimston True Power.
-Reyna_046|reyna|If that brand's something is like ours, he's not going to quit. Let's make him retire, shall we?
-Reyna_047|reyna|Okay, I'll mend you on that round.
-Reyna_048|reyna|Yet you are very talented and for the neck you see kill.
-Reyna_049|reyna|terminado.
+Reyna_045|reyna|I'll show that Brimstones True Power.
+Reyna_046|reyna|If that Brimstone is like ours, he's not going to quit. Let's make him retire, shall we?
+Reyna_047|reyna|Okay, Omen you won that round.
+Reyna_048|reyna|Jet you are very talented aim for neck, easy kill.
+Reyna_049|reyna|Terminado.
 Reyna_050|reyna|I was not meant for this climate. Let's go.
-Reyna_051|reyna|safer buried.
+Reyna_051|reyna|Cypher buried.
 Reyna_052|reyna|The sanctuary is grateful for your support chamber, but do not expect any favors.
+Reyna_053|reyna|I will rip their heart out.
 Reyna_054|reyna|Someone else will clean up. I don't take out the trash.
-Reyna_056|reyna|It is the breathing excellent. Then we are done.
-Reyna_057|reyna|Bridge Killed.
+Reyna_055|reyna|Jet you are very talented aim for neck, easy kill.
+Reyna_056|reyna|They stopped breathing? Excellent. Then we're done.
+Reyna_057|reyna|Breach Killed.
 Reyna_058|reyna|I was not meant for this climate. Let's go!
-Reyna_059|reyna|They have no idea how hardly I am.
-Reyna_062|reyna|Let the wave in X.
+Reyna_059|reyna|They have no idea how heartless I am.
+Reyna_060|reyna|Hello Darling!
+Reyna_061|reyna|Someone else will clean up. I don't take out the trash.
+Reyna_062|reyna|Light the way, Phoenix.
 Reyna_063|reyna|
 Reyna_064|reyna|
 Reyna_065|reyna|Kingdom bleeds are planet once again. Too many scars to count.
-Reyna_066|reyna|Oh, man, shall we see who cuts quicker? No harm in the little competition.
-Reyna_067|reyna|have stood over so many corpses. A few more does not matter.
-Reyna_069|reyna|Still in sight.
-Reyna_070|reyna|We group.
+Reyna_066|reyna|Omen, shall we see who cuts quicker? No harm in the little competition.
+Reyna_067|reyna|I have stood over so many corpses. A few more does not matter.
+Reyna_068|reyna|They have no idea how heartless I am.
+Reyna_069|reyna|Stealing sight.
+Reyna_070|reyna|Re group.
 Reyna_071|reyna|such trash.
 Reyna_072|reyna|See.
 Reyna_073|reyna|I'm watching here.
-Reyna_074|reyna|there.
-Reyna_075|reyna|on my way.
-Reyna_076|reyna|Rest Vault
-Reyna_077|reyna|there.
-Reyna_078|reyna|impressive.
+Reyna_074|reyna|There.
+Reyna_075|reyna|On my way.
+Reyna_076|reyna|Pikaboo.
+Reyna_077|reyna|There.
+Reyna_078|reyna|Impressive.
 Reyna_079|reyna|Meet.
 Reyna_080|reyna|B.
 Reyna_081|reyna|How did we forget the spike?
@@ -70,21 +83,21 @@ Reyna_082|reyna|Hold.
 Reyna_083|reyna|No prisoners.
 Reyna_084|reyna|Ha!
 Reyna_085|reyna|don't resist.
-Reyna_086|reyna|drug is not coming towards food anymore.
+Reyna_086|reyna|Spike spotted!
 Reyna_087|reyna|Ugh!
-Reyna_088|reyna|They will color!
+Reyna_088|reyna|They will cover!
 Reyna_089|reyna|going mid.
 Reyna_090|reyna|No need to suffer.
-Reyna_091|reyna|Insectes !
-Reyna_092|reyna|There's nothing to me.
-Reyna_093|reyna|They have no idea how hardly I am.
+Reyna_091|reyna|Insecto!
+Reyna_092|reyna|They are nothing to me.
+Reyna_093|reyna|They have no idea how heartless I am.
 Reyna_094|reyna|Need cover.
-Reyna_095|reyna|sesleri.
+Reyna_095|reyna|Ugh!
 Reyna_096|reyna|Need a drop.
-Reyna_097|reyna|Hey.
-Reyna_098|reyna|out of charges.
+Reyna_097|reyna|A.
+Reyna_098|reyna|Out of charges.
 Reyna_099|reyna|Let's rotate.
-Reyna_100|reyna|there.
+Reyna_100|reyna|There.
 Reyna_101|reyna|Thank you.
 Reyna_102|reyna|on my mark.
 Reyna_103|reyna|How did we forget the spike?
