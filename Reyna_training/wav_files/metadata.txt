@@ -99,53 +99,53 @@ Reyna_098|reyna|Out of charges.
 Reyna_099|reyna|Let's rotate.
 Reyna_100|reyna|There.
 Reyna_101|reyna|Thank you.
-Reyna_102|reyna|on my mark.
+Reyna_102|reyna|On my mark.
 Reyna_103|reyna|How did we forget the spike?
-Reyna_104|reyna|still inside.
-Reyna_105|reyna|enemy spotted.
-Reyna_106|reyna|our spikes down.
-Reyna_107|reyna|Go in Gey!
+Reyna_104|reyna|Stealing Sight.
+Reyna_105|reyna|Enemy spotted.
+Reyna_106|reyna|Our spikes down.
+Reyna_107|reyna|Going A!
 Reyna_108|reyna|Out of my way.
 Reyna_109|reyna|Ha!
-Reyna_110|reyna|Cutting the vision.
+Reyna_110|reyna|Cutting their vision.
 Reyna_111|reyna|Get the hell out of this fellow?! You come back! Okay? WE ARErrggggggghhh Don't go ди di di dih 4! Maybe you gonna quit it?
-Reyna_112|reyna|Gnit Scouting
-Reyna_113|reyna|Insect.
+Reyna_112|reyna|Need Scouting.
+Reyna_113|reyna|Insecto.
 Reyna_114|reyna|See?
-Reyna_115|reyna|Don't rush me!
+Reyna_115|reyna|Ha!, Don't rush me!
 Reyna_116|reyna|Yes!
-Reyna_117|reyna|Gone here.
-Reyna_118|reyna|Go ahead.
+Reyna_117|reyna|Going here.
+Reyna_118|reyna|Going A.
 Reyna_119|reyna|Reloading.
-Reyna_120|reyna|multiple enemies ahead.
+Reyna_120|reyna|Multiple enemies ahead.
 Reyna_121|reyna|Forgive me.
 Reyna_122|reyna|You're nothing.
-Reyna_123|reyna|It's gouding.
-Reyna_124|reyna|Full Buck.
-Reyna_125|reyna|My else not ready.
+Reyna_123|reyna|Needs Scouting.
+Reyna_124|reyna|Fall Back.
+Reyna_125|reyna|My Ult's not ready.
 Reyna_126|reyna|Ugh.
-Reyna_127|reyna|The hunt begins!
-Reyna_128|reyna|spikes here
+Reyna_127|reyna|The Hunt begins!
+Reyna_128|reyna|Spikes here.
 Reyna_129|reyna|Look your enemy in the eye. It helps with accuracy.
-Reyna_130|reyna|!
-Reyna_131|reyna|careful here.
+Reyna_130|reyna|See Nothing.
+Reyna_131|reyna|Careful here.
 Reyna_132|reyna|I need healing.
 Reyna_133|reyna|Hello darling.
 Reyna_134|reyna|Fall back!
 Reyna_135|reyna|Need help.
-Reyna_136|reyna|3SOURCE
+Reyna_136|reyna|Three Souls.
 Reyna_137|reyna|How did we forget the spike?
 Reyna_138|reyna|They forget their place.
 Reyna_139|reyna|Oh, man, shall we see who cuts quicker? No harm in the little competition.
 Reyna_140|reyna|Careful here.
 Reyna_141|reyna|Well, before me!
 Reyna_142|reyna|Ugh!
-Reyna_143|reyna|Oh, they're rush!
+Reyna_143|reyna|Ah the rush!
 Reyna_144|reyna|Spikes spotted.
-Reyna_145|reyna|on my way.
+Reyna_145|reyna|On my way.
 Reyna_146|reyna|HAHAHAHA
-Reyna_147|reyna|If I had to appear, it's because I am.
-Reyna_148|reyna|Ha ha ha ha ha
+Reyna_147|reyna|If I Act Superior, it's because I am.
+Reyna_148|reyna|Ha ha ha ha ha.
 Reyna_149|reyna|Ugh.
 Reyna_150|reyna|Ugh.
 Reyna_151|reyna|You could never hope to match Arradyanti.
@@ -156,47 +156,47 @@ Reyna_155|reyna|Nope.
 Reyna_156|reyna|Never saw me.
 Reyna_157|reyna|See.
 Reyna_158|reyna|Thank you.
-Reyna_159|reyna|pathetic.
+Reyna_159|reyna|Pathetic.
 Reyna_160|reyna|Today's a gift to radiance. We're finally free to use our power.
-Reyna_161|reyna|Meet.
-Reyna_162|reyna|
+Reyna_161|reyna|Mid.
+Reyna_162|reyna|hehehe ahhahahh aaaah...
 Reyna_163|reyna|Thank you.
-Reyna_164|reyna|Specs here.
-Reyna_165|reyna|
+Reyna_164|reyna|Spikes here.
+Reyna_165|reyna|Ugh!
 Reyna_166|reyna|B
 Reyna_167|reyna|Adiós.
-Reyna_168|reyna|I have this bike.
-Reyna_169|reyna|is the breading excellent then we are done.
+Reyna_168|reyna|I have this Spike.
+Reyna_169|reyna|They still breading excellent then we are done.
 Reyna_170|reyna|Don't be cheap. Spend it all before it's gone.
-Reyna_171|reyna|going to be.
+Reyna_171|reyna|Going to be.
 Reyna_172|reyna|Not ready yet.
 Reyna_173|reyna|My ult's almost ready.
 Reyna_174|reyna|See?
 Reyna_175|reyna|You're nothing.
-Reyna_176|reyna|out of turgous.
-Reyna_177|reyna|
+Reyna_176|reyna|Out of Charges.
+Reyna_177|reyna|Ah! Ugh!
 Reyna_178|reyna|Be quiet.
-Reyna_179|reyna|Yet you are very talented and for the neck you see kill.
+Reyna_179|reyna|Jett you are very talented Aim for the neck Easy kill.
 Reyna_180|reyna|Enough of your technology. The future is radiant.
 Reyna_181|reyna|Someone else will clean up. I don't take out the trash.
-Reyna_182|reyna|going to see.
+Reyna_182|reyna|going to C.
 Reyna_183|reyna|Thank you.
 Reyna_184|reyna|Sage, we are the perfect pair to give life. I take it.
-Reyna_185|reyna|multiple enemies ahead.
+Reyna_185|reyna|Multiple enemies Ahead.
 Reyna_186|reyna|Ah, back where I belong.
-Reyna_187|reyna|can use that.
-Reyna_188|reyna|went three years ago ע
-Reyna_189|reyna|いきます
-Reyna_190|reyna|Vishnu.
-Reyna_191|reyna|blindfolds
+Reyna_187|reyna|Can't use that.
+Reyna_188|reyna|Stealing Sight.
+Reyna_189|reyna|Enough.
+Reyna_190|reyna|Pikaboo.
+Reyna_191|reyna|blindfolds.
 Reyna_192|reyna|See you in the front lines Phoenix. Save some enemies for me.
 Reyna_193|reyna|Shoo!
 Reyna_194|reyna|rotating.
-Reyna_195|reyna|This anime is nothing special. Still human. Still mortal.
+Reyna_195|reyna|This Enimy is nothing special. Still human. Still mortal.
 Reyna_196|reyna|They want to die. Let them.
-Reyna_197|reyna|It's coding.
-Reyna_198|reyna|going to hear.
-Reyna_199|reyna|specced but it.
+Reyna_197|reyna|Needs Scouting.
+Reyna_198|reyna|Gun hear.
+Reyna_199|reyna|Spikes Spotted.
 Reyna_200|reyna|See nothing.
 Reyna_201|reyna|mhm-
 Reyna_202|reyna|Not ready yet.
